@@ -83,6 +83,19 @@ PR 模板会自动带出检查清单。
 - 受版权保护的歌词、封面、音频
 - 个人隐私信息（VIN、手机号、账号、完整日志里的个人信息）
 
+## 版本发布（维护者）
+
+1. 改 `app/build.gradle` 的 `versionCode` / `versionName`（这是唯一版本来源）
+2. 把 `CHANGELOG.md` 的 `[Unreleased]` 改成新版本号与日期
+3. 提交并打 tag：
+
+   ```bash
+   git tag v1.2
+   git push origin main --tags
+   ```
+
+4. `.github/workflows/release.yml` 会自动构建并把 APK 挂到 Release
+
 ## 行为准则
 
 - 对事不对人，欢迎不同实现思路
