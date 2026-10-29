@@ -1,0 +1,26 @@
+# 构建产物
+build/
+out/
+*.apk
+*.ap_
+*.dex
+*.class
+*.idsig
+
+# 签名与本地配置（debug.keystore 由 build_apk.py 自动生成）
+*.keystore
+*.jks
+local.properties
+
+# Gradle / IDE
+.gradle/
+.idea/
+*.iml
+.vscode/
+captures/
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

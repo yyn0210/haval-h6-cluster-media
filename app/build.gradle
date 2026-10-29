@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.gwm.clusterbridge'
+    compileSdk 28
+
+    defaultConfig {
+        applicationId 'com.gwm.clusterbridge'
+        minSdk 28
+        targetSdk 28
+        versionCode 3
+        versionName '1.2'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lint {
+        abortOnError false
+    }
+}
+
+dependencies {
+    // aptiv.core 在车机 BOOTCLASSPATH 里，运行时由 boot classloader 提供。
+    // 这里只用于编译期符号解析，绝不能打进 APK。
+    compileOnly project(':aptiv-stubs')
+}

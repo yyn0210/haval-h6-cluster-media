@@ -1,0 +1,39 @@
+name: 功能建议
+description: 新 App 支持、新功能、兼容性反馈
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 想解决什么问题
+      description: 描述场景，而不是直接给方案
+      placeholder: 我主要用 XX 音乐，希望它也能显示在仪表上
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 期望的做法
+      description: 如果有具体想法可以写在这里
+
+  - type: input
+    id: target_app
+    attributes:
+      label: 涉及的音乐 App / 包名（如适用）
+      placeholder: com.example.music
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 车型、固件、已尝试过的方法、是否能帮忙测试
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 确认
+      options:
+        - label: 已搜索过现有 Issue 和 README 的路线图
+          required: true

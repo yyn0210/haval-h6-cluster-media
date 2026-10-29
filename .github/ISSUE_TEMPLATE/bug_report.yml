@@ -1,0 +1,84 @@
+name: Bug 报告
+description: 仪表不显示、日志异常、构建失败
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        开 Issue 前请先看 README 的「排错」和「常见问题」。
+        涉及安全的请按 SECURITY.md 私下报告，不要公开细节。
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 问题类型
+      options:
+        - 仪表不显示 / 显示不对
+        - 收不到某个音乐 App
+        - 仪表闪烁 / 音源来回切换
+        - 连接不上 MultiDisplay
+        - 构建失败
+        - 界面 / 文档问题
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: vehicle
+    attributes:
+      label: 车型与车机固件
+      description: 例如「三代 H6 2021 款，4038」
+      placeholder: 三代 H6，4038
+    validations:
+      required: true
+
+  - type: input
+    id: app_version
+    attributes:
+      label: 本 App 版本
+      description: 可用 adb shell dumpsys package com.gwm.clusterbridge | grep versionName
+      placeholder: 1.2 (versionCode 3)
+    validations:
+      required: true
+
+  - type: input
+    id: target_app
+    attributes:
+      label: 目标音乐 App 与包名
+      description: 从 aapt2 dump badging 或「诊断信息」里获取
+      placeholder: QQ音乐车机版 com.tencent.qqmusiccar 3.16.0.2
+
+  - type: textarea
+    id: symptom
+    attributes:
+      label: 现象
+      description: 期望发生什么，实际发生什么
+      placeholder: |
+        期望：仪表显示歌名
+        实际：仪表一直显示「无媒体」
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志
+      description: adb logcat -s MultiDisplay.Service ClusterBridge ClusterPublisher
+      render: shell
+      placeholder: |
+        可见会话 1 个: com.tencent.qqmusiccar(PLAYING)"七里香"
+        已接管媒体会话: com.tencent.qqmusiccar（来源：会话列表）
+        notifyValue propertyId 18
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 确认
+      options:
+        - label: 我已经看过 README 的排错章节
+          required: true
+        - label: 已搜索过现有 Issue
+          required: true
+        - label: 日志中不含个人信息（或已打码）
+          required: true

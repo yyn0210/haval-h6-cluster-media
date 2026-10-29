@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">仪表媒体桥</string>
+    <string name="service_label">仪表媒体桥（通知监听）</string>
+    <string name="subtitle">把任意音乐 App 的歌曲信息投送到仪表盘 · 无需修改原 App</string>
+    <string name="state_connecting">仪表通道：连接中…</string>
+    <string name="label_packages">要桥接的音乐 App 包名（每行一个）</string>
+    <string name="label_sourcetype">音源类型 sourceType（爱趣听实测为 14）</string>
+    <string name="label_log">运行日志</string>
+    <string name="btn_save">保存配置</string>
+    <string name="btn_notif_access">开启通知使用权</string>
+    <string name="btn_test">发送测试数据到仪表</string>
+    <string name="btn_release">释放仪表音源占用</string>
+    <string name="btn_probe">诊断信息</string>
+    <string name="btn_clear">清空</string>
+</resources>
