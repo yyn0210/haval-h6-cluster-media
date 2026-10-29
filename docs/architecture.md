@@ -11,16 +11,13 @@
 ```mermaid
 flowchart TD
     A["音乐 App<br/>（爱趣听 / QQ音乐车机版 / 酷我 …）"] -->|MediaSession / 通知| B["本 App<br/>NotificationListenerService"]
+    A2["爱趣听（原厂路径）"] -.-> B2["ThirdMediaPartyService"] -.-> C
     B -->|"AIDL notifyValue(propertyId, value)"| C["AptivMultiDisplayService<br/>com.aptiv.multidisplay<br/>system uid"]
     C -->|"MultiDisplayDataType.toBytes()"| D["CarPropertyManager.setProperty<br/>0x21709C00 | propertyId"]
-    D --> E["Vehicle HAL<br/>vendor/bin/hw/android.hardware.automotive.vehicle@2.0-service.aptiv"]
+    D --> E["Vehicle HAL<br/>android.hardware.automotive.vehicle@2.0-service.aptiv"]
     E -->|"HISIP / TCP 192.168.10.1:5566"| F["QNX CAN 网关"]
     F --> G["CAN 总线"]
     G --> H["仪表 MCU"]
-
-    subgraph 原厂路径
-        A2["爱趣听"] --> B2["ThirdMediaPartyService"] --> C
-    end
 ```
 
 要点：
