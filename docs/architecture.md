@@ -82,7 +82,9 @@ export BOOTCLASSPATH ...:/system/framework/android.car.jar:/system/framework/apt
 
 - **运行时**：`aptiv.multidisplay.*` 由 boot classloader 提供给所有 App，无需 `uses-library`。
 - **编译时**：需要一个能提供符号的 jar。本工程用 `aptiv-stubs` 模块，
-  通过 `compileOnly` 引入，**不会打进 APK**（可用 `unzip -l` 确认 dex 里没有 `aptiv/*`）。
+  通过 `compileOnly` 引入，**不会打进 APK**。
+  解析 `classes.dex` 的 `class_defs` 可以确认：里面只有对 `aptiv.multidisplay.*`
+  的类型引用（31 个类定义全部是 `com.gwm.clusterbridge.*`），没有任何 `aptiv` 类定义。
 
 存根里只有方法签名，没有任何实现代码。
 

@@ -102,11 +102,13 @@ adb logcat -s ClusterBridge ClusterPublisher
 
 | App | 包名 | 依据 |
 |---|---|---|
-| QQ音乐 车机版 | `com.tencent.qqmusiccar` | `MediaSessionCompat` + `MediaBrowserService` + `MediaButtonReceiver`；实车验证 |
-| 酷我音乐 车机版 | `cn.kuwo.kwmusiccar` | `cn.kuwo.mod.mediaSession.KwMediaSessionService` 声明 `android.media.browse.MediaBrowserService`，用 `Notification.MediaStyle`；实车验证 |
+| QQ音乐 车机版 | `com.tencent.qqmusiccar` | `MediaSessionCompat` + `MediaBrowserService` + `MediaButtonReceiver`；待实车反馈 |
+| 酷我音乐 车机版 | `cn.kuwo.kwmusiccar` | `cn.kuwo.mod.mediaSession.KwMediaSessionService` 声明 `android.media.browse.MediaBrowserService`，用 `Notification.MediaStyle`；待实车反馈 |
 | QQ音乐 手机版 | `com.tencent.qqmusic` | 标准 MediaSession；车机上通常装不上 |
 | 酷狗音乐 | `com.kugou.android` | 标准 MediaSession；未实车验证 |
 | 喜马拉雅 | `com.ximalaya.ting.android` | 标准 MediaSession；未实车验证 |
+
+> 「依据」来自 APK 静态分析，不等同于实车跑通。目前实车验证过的只有仪表通道本身。
 
 ## 6. 提交 PR 时请附上
 

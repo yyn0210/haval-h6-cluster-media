@@ -32,7 +32,6 @@ OUT = os.path.join(ROOT, 'out')
 KEYSTORE = os.path.join(ROOT, 'debug.keystore')
 
 PROJECT = 'haval-h6-cluster-media'
-PKG = 'com.gwm.clusterbridge'
 
 # Windows 控制台默认不是 UTF-8，中文日志会乱码
 try:

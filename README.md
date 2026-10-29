@@ -91,11 +91,14 @@ flowchart LR
 
 | App | 包名 | 状态 |
 |---|---|---|
-| QQ音乐 车机版 | `com.tencent.qqmusiccar` | ✅ 已验证 |
-| 酷我音乐 车机版 | `cn.kuwo.kwmusiccar` | ✅ 已验证 |
+| QQ音乐 车机版 | `com.tencent.qqmusiccar` | 🟡 包名与标准 MediaSession 已确认，待实车反馈 |
+| 酷我音乐 车机版 | `cn.kuwo.kwmusiccar` | 🟡 包名与标准 MediaSession 已确认，待实车反馈 |
 | QQ音乐 手机版 | `com.tencent.qqmusic` | ⚠️ 车机上通常装不上，仅作兼容 |
 | 酷狗音乐 | `com.kugou.android` | ⚪ 标准 MediaSession，未实车验证 |
 | 喜马拉雅 | `com.ximalaya.ting.android` | ⚪ 标准 MediaSession，未实车验证 |
+
+> 目前**实车验证过的只有仪表通道本身**（测试数据能显示在仪表上）。
+> 各音乐 App 的完整链路欢迎按 Issue 模板反馈实测结果。
 
 > 换车/换平台时注意：`aptiv.multidisplay` 这层在其他车型上大概率不存在，本项目不能直接照搬；
 > 但「MediaSession / 通知 Token 采集」部分是通用 Android 代码，可以复用。
@@ -181,7 +184,7 @@ python build_apk.py --clean
 
 脚本会自动探测 `ANDROID_SDK_ROOT`、`ANDROID_HOME`、`~/AppData/Local/Android/Sdk` 等常见位置。
 
-产物：`out/haval-h6-cluster-media-v1.2.apk`（约 29 KB，用自动生成的调试证书签名）。
+产物：`out/haval-h6-cluster-media-v<version>.apk`（约 29 KB，用自动生成的调试证书签名）。
 
 首次构建会在仓库根目录生成 `debug.keystore`（已被 `.gitignore` 忽略），不需要手动准备。
 
@@ -205,7 +208,8 @@ gradle wrapper --gradle-version 8.2
 ```
 
 > `aptiv.core` 的类在车机上由 boot classloader 提供，Gradle 侧通过 `compileOnly project(':aptiv-stubs')` 解析符号；
-> 存根**不会**打进 APK（可自行用 `unzip -l` 确认 dex 里没有 `aptiv/*`）。
+> 存根**不会**打进 APK —— 解析 `classes.dex` 的 class_defs 可以看到，
+> 里面只有对 `aptiv.multidisplay.*` 的类型引用，没有任何类定义。
 
 ---
 
@@ -294,7 +298,7 @@ SharedPreferences 会跨版本保留。新增的默认包名会自动合并进"�
 几个容易踩的坑：
 
 - `aptiv.core.jar` 在车机上只是空壳，真实类在 `boot-aptiv.core.vdex`（compact dex，常规工具读不了），
-  所以必须自己写编译期存根，且**不能打进 APK**
+  所以必须自己写编译期存根，且**不能把存根的定义打进 APK**（只保留类型引用）
 - `MultiDisplayInterface.ConnectionCallback` 的回调名是 `onConncted()`（原厂拼写少一个 e），不要"修正"
 - `propertyId` 是 MultiDisplay 内部 ID，服务内部会 `| 0x21709C00` 换算成 VHAL 属性
 - `AptivMultiDisplayService` 以 system uid 写属性，**调用方 uid 不参与权限判定**

@@ -32,7 +32,7 @@ Gradle 不是必需；本仓库默认用 `build_apk.py` 直接调用 SDK 工具�
 
 ```bash
 python build_apk.py --clean
-adb install -r out/haval-h6-cluster-media-v1.2.apk
+adb install -r out/haval-h6-cluster-media-v*.apk
 ```
 
 提交前至少确认：

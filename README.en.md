@@ -127,7 +127,8 @@ gradle wrapper --gradle-version 8.2
 ```
 
 The `aptiv-stubs` module is `compileOnly`; its classes are **not** packaged into
-the APK.
+the APK. Parsing the DEX `class_defs` shows only type references to
+`aptiv.multidisplay.*`, with no class definitions.
 
 ## Configuration
 

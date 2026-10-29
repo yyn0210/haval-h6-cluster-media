@@ -16,7 +16,7 @@
 
 ```bash
 python build_apk.py --clean
-adb install -r out/haval-h6-cluster-media-v1.2.apk
+adb install -r out/haval-h6-cluster-media-v*.apk
 adb logcat -s ClusterBridge ClusterPublisher
 ```
 
