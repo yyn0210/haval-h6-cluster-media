@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gwm.clusterbridge">
+    package="com.janeluo.gwm.clusterbridge">
 
     <!-- 通知监听服务本身不需要额外权限，由用户在设置里授予"通知使用权" -->
 

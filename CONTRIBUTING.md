@@ -7,7 +7,7 @@
 开 Issue 时请附上：
 
 - 车型、年款、车机固件版本（例如「三代 H6，4038」）
-- 本 App 版本（界面标题下方或 `adb shell dumpsys package com.gwm.clusterbridge | grep versionName`）
+- 本 App 版本（界面标题下方或 `adb shell dumpsys package com.janeluo.gwm.clusterbridge | grep versionName`）
 - 目标音乐 App 的包名和版本
 - 关键日志：
 

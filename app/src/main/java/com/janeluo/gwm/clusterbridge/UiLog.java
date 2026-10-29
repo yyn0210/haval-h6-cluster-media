@@ -1,4 +1,4 @@
-package com.gwm.clusterbridge;
+package com.janeluo.gwm.clusterbridge;
 
 import android.util.Log;
 

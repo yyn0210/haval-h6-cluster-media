@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.gwm.clusterbridge'
+    namespace 'com.janeluo.gwm.clusterbridge'
     compileSdk 28
 
     defaultConfig {
-        applicationId 'com.gwm.clusterbridge'
+        applicationId 'com.janeluo.gwm.clusterbridge'
         minSdk 28
         targetSdk 28
         versionCode 3

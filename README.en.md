@@ -88,7 +88,7 @@ adb install -r haval-h6-cluster-media-v1.2.apk
 
 # grant notification access
 adb shell cmd notification allow_listener \
-    com.gwm.clusterbridge/.ClusterBridgeService
+    com.janeluo.gwm.clusterbridge/.ClusterBridgeService
 ```
 
 Then:

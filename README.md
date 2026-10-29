@@ -120,7 +120,10 @@ flowchart LR
 adb install -r haval-h6-cluster-media-v1.2.apk
 ```
 
-包名：`com.gwm.clusterbridge`。也可以用 U 盘或车机文件管理器安装。
+包名：`com.janeluo.gwm.clusterbridge`。也可以用 U 盘或车机文件管理器安装。
+
+> 如果你装过更早的开发版（包名 `com.gwm.clusterbridge`），两个包名互不覆盖，
+> 请先卸载旧版，再重新授予通知使用权。
 
 ### 3. 开启通知使用权
 
@@ -129,7 +132,7 @@ adb install -r haval-h6-cluster-media-v1.2.apk
 
 ```bash
 adb shell cmd notification allow_listener \
-    com.gwm.clusterbridge/.ClusterBridgeService
+    com.janeluo.gwm.clusterbridge/.ClusterBridgeService
 ```
 
 ### 4. 先验证仪表通道（建议）

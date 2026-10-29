@@ -18,6 +18,8 @@
 
 ### 变更
 
+- **应用包名改为 `com.janeluo.gwm.clusterbridge`**（原 `com.gwm.clusterbridge`）。
+  两个包名互不覆盖，升级前请先卸载旧版并重新授予通知使用权
 - 构建产物改名为 `out/haval-h6-cluster-media-v<versionName>.apk`
 - 版本号统一以 `app/build.gradle` 为准，`build_apk.py` 自动读取
 - 仓库文件统一使用 LF（`.gitattributes`）

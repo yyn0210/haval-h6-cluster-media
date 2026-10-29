@@ -1,4 +1,4 @@
-package com.gwm.clusterbridge;
+package com.janeluo.gwm.clusterbridge;
 
 import android.app.Notification;
 import android.content.ComponentName;
@@ -34,7 +34,7 @@ import java.util.Set;
  *      MediaController。若连 token 都没有，则退回解析通知标题/正文。
  *
  * 使用前提：用户在「设置 → 通知使用权」里启用本服务
- *          （或 adb shell cmd notification allow_listener com.gwm.clusterbridge/.ClusterBridgeService）。
+ *          （或 adb shell cmd notification allow_listener com.janeluo.gwm.clusterbridge/.ClusterBridgeService）。
  */
 public class ClusterBridgeService extends NotificationListenerService {
 
